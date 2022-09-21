@@ -1,4 +1,22 @@
-## Output of running ifconfig after setting up the VM
+# Exercise 1
+
+- Setup Ubuntu 20.04 LTS on your local machine using Vagrant
+
+<br>
+
+> **Instruction:**
+>
+> - Customize your Vagrant file as necessary with private_network set to DHCP.
+>
+> - Once the machine is up, run ifconfig and share the output in your submission along with your Vagrant file in a folder for this exercise.
+
+<br><br>
+
+---
+
+<br>
+
+### Output of running ifconfig after setting up the VM
 
 ```bash
 enp0s3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500

@@ -1,5 +1,8 @@
-### In this exercise, I created 2 Ubuntu VMs, with user ubuntu_1 on VM ubuntu_1 and user ubuntu_2 on VM ubuntu_2
-----
+# Extra exercise for week 4
+- Implement an ssh connection between 2 linux machines
+<br><br>
+#### In this exercise, I created 2 Ubuntu VMs, with user ubuntu_1 on VM ubuntu_1 and user ubuntu_2 on VM ubuntu_2
+<br><br>
 
 #### VM 1
 ```bash
