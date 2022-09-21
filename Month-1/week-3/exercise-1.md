@@ -27,5 +27,8 @@ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
         RX errors 0  dropped 0  overruns 0  frame 0
         TX packets 8  bytes 712 (712.0 B)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
-
 ```
+
+<br>
+
+Here's a copy of the [Vagrant File](./assets/Vagrantfile) :point_left:
