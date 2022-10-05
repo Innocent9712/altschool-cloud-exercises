@@ -1,0 +1,44 @@
+---
+  - name: omega
+    hosts: ubuntu_servers
+    become: yes
+    vars:
+      dir_path: "/var/www/html/"
+    tasks:
+      - name: set server timezone
+        command: timedatectl set-timezone Africa/Lagos
+
+      - name: Install apache and PHP
+        apt:
+          name: "{{ item }}"
+          state: latest
+          update_cache: yes
+        loop:
+          - apache2
+          - php
+      - name: copy php file to index
+        copy:
+          src: ~/php-template.php
+          dest: "{{ dir_path }}index.php"
+
+      - name: Check if index file exists
+        stat:
+          path: "{{ dir_path }}index.html"
+        register: check_file_name
+      - name: Copy index file with new name
+        copy:
+          remote_src: true
+          src: "{{ dir_path }}index.html"
+          dest: "{{ dir_path }}index.copy.html"
+        when: check_file_name.stat.exists
+      - name: remove old index file
+        file:
+          path: "{{ dir_path }}index.html"
+          state: absent
+        when: check_file_name.stat.exists
+        notify: restart apache
+    handlers:
+      - name: restart apache
+        service:
+          name: apache2
+          state: restarted
