@@ -8,6 +8,7 @@
 
 ~~~php
 <?php
+date_default_timezone_set('Africa/Lagos');
 date("F d, Y h:i:s A e", time());
 ?>
 ~~~
