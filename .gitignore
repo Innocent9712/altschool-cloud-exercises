@@ -1,0 +1,9 @@
+group_var/
+host_var/
+var/
+hosts
+
+Semester-2-exam/group_vars/
+Semester-2-exam/host_var/
+Semester-2-exam/vars/
+Semester-2-exam/hosts
