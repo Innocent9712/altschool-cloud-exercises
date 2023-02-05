@@ -1,0 +1,19 @@
+---
+
+- hosts: web_servers
+  vars_files:
+  - vars/main.yml
+  roles:
+    - base
+    - apache
+    - mini-app
+  handlers:
+    - name: update repo
+      become: true
+      apt:
+        update_cache: true
+    - name: reload apache
+      become: true
+      service:
+        name: "{{ apache_package }}"
+        state: reloaded

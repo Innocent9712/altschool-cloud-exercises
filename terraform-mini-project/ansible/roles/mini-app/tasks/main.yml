@@ -1,0 +1,5 @@
+- name: apply content
+  become: true
+  tags:
+    - app
+  script: app_content.sh

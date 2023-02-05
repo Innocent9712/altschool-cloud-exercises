@@ -1,0 +1,11 @@
+- name: upgrade dist
+  become: true
+  tags:
+    - ubuntu
+    - upgrade
+    - setup
+  apt:
+    upgrade: dist
+  notify: update repo
+  when: ansible_distribution in ["Ubuntu", "Debian"]
+

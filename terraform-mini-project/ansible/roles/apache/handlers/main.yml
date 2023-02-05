@@ -1,0 +1,17 @@
+- name: apache service started
+  become: true
+  service:
+    name: "{{ apache_package }}"
+    state: started
+
+- name: apache service enabled
+  become: true
+  service:
+    name: "{{ apache_package }}"
+    enabled: true
+
+- name: apache service restart
+  become: true
+  service:
+    name: "{{ apache_package }}"
+    state: restarted

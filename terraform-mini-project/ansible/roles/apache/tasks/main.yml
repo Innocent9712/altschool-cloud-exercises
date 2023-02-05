@@ -1,0 +1,13 @@
+- name: Install apache
+  become: true
+  tags:
+    - apache
+    - ubuntu
+  package:
+    name: "{{ apache_package }}"
+    state: latest
+    update_cache: true
+  notify:
+    - apache service started
+    - apache service enabled
+  

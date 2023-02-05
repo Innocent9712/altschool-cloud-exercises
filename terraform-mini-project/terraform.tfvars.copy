@@ -1,0 +1,7 @@
+profile = "demo"
+ubuntu_ami = ""
+certificate_arn = ""
+domain_name = ""
+sub_domain = ""
+tf_state_bucket = ""
+tf_state_table = ""
