@@ -1,0 +1,58 @@
+version: "3.7"
+services:
+  db:
+    image: mysql:8.0
+    container_name: db
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_USER: ${DB_USERNAME}
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - backend
+
+  app:
+    build:
+      args:
+        user: innocent
+        uid: 1000
+      context: ./
+      dockerfile: Dockerfile
+    image: my-app
+    container_name: app
+    restart: unless-stopped
+    working_dir: /var/www/
+    networks:
+      - frontend
+      - backend
+    depends_on:
+      - db
+
+  nginx:
+    image: nginx:alpine
+    container_name: nginx-server
+    restart: unless-stopped
+    ports:
+      - 80:80
+    logging:
+      driver: json-file
+    volumes:
+      - ./:/var/www
+      - ./docker-compose/nginx:/etc/nginx/conf.d/
+      - logs:/var/log/nginx
+    networks:
+      - frontend
+
+networks:
+  frontend:
+    driver: bridge
+  backend:
+volumes:
+  mysql-data:
+    driver: local
+  logs:
