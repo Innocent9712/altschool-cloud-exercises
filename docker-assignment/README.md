@@ -22,6 +22,12 @@ docker compose up -d
 to bring up the containers. This would build the app image, spin it up. It'll also pull the mysql image and spin it up. It'll also pull the nginx image and spin it up.
 
 ```shell
+docker compose exec app php artisan migrate --seed
+```
+
+to migrate and seed to the database
+
+```shell
 docker ps
 ```
 
