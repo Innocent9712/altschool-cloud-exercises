@@ -4,11 +4,16 @@
 - Have Docker engine installed
 - Have docker compose installed
 
-clone the repo https://github.com/f1amy/laravel-realworld-example-app.git as `app/`
 
-copy the `docker-compose.yml`, `Dockerfile` files and `docker-compose/` directory to the root of the project `app/`
+Go to the directory `docker-assignment` and copy `.env.example` to `.env`. Then edit the following in `.env` to your liking:
+```env
+DB_DATABASE=<your_db_name>
+DB_USERNAME=<your_db_user>
+DB_PASSWORD=<your_db_password>
+```
 
-On your terminal. make sure you're in the root of the project `app/` and run the following command:
+### Steps
+On your terminal. make sure you're in the directory `docker-assignment` and run the following command:
 
 ```shell
 docker compose up -d

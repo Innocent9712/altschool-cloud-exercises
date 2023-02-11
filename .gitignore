@@ -14,3 +14,5 @@ Semester-2-exam/hosts
 *.tfstate*
 .terraform.lock.hcl
 *~
+
+.env
